@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# настройки git
+git config --global user.email "denmaltsev@gmail.com"
+git config --global user.name "Denis Maltsev"
+
 # По материалам видео: https://www.youtube.com/watch?v=eHCrFVWZl1E&list=PLHLPqSsXqjvVmWE63h09fHQmIrOxryBnO&index=1
 # Установка диагностических утилит
 sudo dnf -y install neofetch inxi neofetch htop
