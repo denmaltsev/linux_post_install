@@ -24,6 +24,3 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # установить утилиту контроля видеокарты от nwidia
 sudo dnf install gwe
-
-# глобальное меню приложений
-https://github.com/gonzaarcr/Fildem
