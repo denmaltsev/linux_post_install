@@ -37,3 +37,26 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
 sudo dnf install lame\* --exclude=lame-devel
 sudo dnf group upgrade --with-optional Multimedia
+
+# монтирование HDD 
+sudo -s
+mkdir /mtn/data
+chmod 777 /mnt/data
+
+echo "# Secondary Hard Drive" >> /etc/fstab
+echo "/dev/sdb /mnt/data ext4 defaults,noatime 0 2" >> /etc/fstab
+
+
+# установка докера
+sudo dnf install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+
+# включение возможности управления докером простым пользователем
+sudo groupadd docker && sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
+newgrp docker
+
+# проверка работы докера
+docker run hello-world
+
