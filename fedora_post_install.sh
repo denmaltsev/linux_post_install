@@ -44,7 +44,7 @@ mkdir /mtn/data
 chmod 777 /mnt/data
 
 echo "# Secondary Hard Drive" >> /etc/fstab
-echo "/dev/sdb /mnt/data ext4 defaults,noatime 0 2" >> /etc/fstab
+echo "/dev/sdb /mnt/data btrfs defaults 0 2" >> /etc/fstab
 
 
 # установка докера
@@ -60,3 +60,8 @@ newgrp docker
 # проверка работы докера
 docker run hello-world
 
+# линки для Steam для экономии места на основном диске
+md /mnt/data/games/steam/steamapps
+mv ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/* /mnt/data/games/steam/steamapps
+rm -rf ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps
+ln -s  /mnt/data/games/steam/steamapps ~/.var/app/com.valvesoftware.Steam/.local/share/Steam
