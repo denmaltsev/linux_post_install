@@ -60,8 +60,16 @@ newgrp docker
 # проверка работы докера
 docker run hello-world
 
-# линки для Steam для экономии места на основном диске
-md /mnt/data/games/steam/steamapps
-mv ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/* /mnt/data/games/steam/steamapps
-rm -rf ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps
-ln -s  /mnt/data/games/steam/steamapps ~/.var/app/com.valvesoftware.Steam/.local/share/Steam
+# Steam - устанавливать только rpm
+
+# Кодек LDAC для наушников Sony
+# Installing: pulseaudio-module-bluetooth-freeworld ( From rpmfusion-free repository)
+dnf install pulseaudio-module-bluetooth-freeworld --allowerasing
+# Installing: libldac ( From Fedora repository)
+dnf install libldac
+# Removing: pulseaudio-module-bluetooth ( Installed from initial system installation)
+dnf uninstall pulseaudio-module-bluetooth
+# restart bluetooth service
+systemctl restart bluetooth
+# select output configuration in the setting
+
