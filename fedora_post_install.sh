@@ -39,14 +39,12 @@ sudo dnf install lame\* --exclude=lame-devel
 sudo dnf group upgrade --with-optional Multimedia
 
 # монтирование HDD 
-```bash
 sudo -s
 mkdir /mnt/data
 chmod 777 /mnt/data
 
 echo "# Secondary Hard Drive" >> /etc/fstab
 echo "/dev/sdb /mnt/data btrfs defaults 0 2" >> /etc/fstab
-```
 
 # установка докера
 sudo dnf install dnf-plugins-core
