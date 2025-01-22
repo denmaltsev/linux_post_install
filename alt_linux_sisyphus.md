@@ -3,4 +3,6 @@
 1. Папки пользователя на английском:   
    1.1. Исправить наименования в файле `~/.config/user-dirs.dirs`   
    1.2. Перезайти в систему
+1. Nvidia драйвера `sudo epm play switch-to-nvidia`
+1. Утилита управления и разгона видеокарты Nvidia `epmi gwe`   
 1. Управление устройствами Logitech `epmi solaar`
